@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">NetworkDiagnosticsApp</string>
+    <string name="app_name">Network Diagnostics App</string>
+    <string name="ssid_label">SSID: </string>
 </resources>
