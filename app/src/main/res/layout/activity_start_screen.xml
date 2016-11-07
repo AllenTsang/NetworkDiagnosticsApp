@@ -10,8 +10,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="allentsang.networkdiagnosticsapp.StartScreen">
 
+
     <TextView
+        android:text="@string/ssid_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ssid_label" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/start_ssid_label" />
+
+    <TextView
+        android:text="@string/ip_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_ssid_label"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/start_ip_label" />
+
+    <TextView
+        android:text="@string/not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/start_ip_label"
+        android:layout_toEndOf="@+id/start_ip_label"
+        android:id="@+id/start_ssid_content" />
+
+    <TextView
+        android:text="@string/not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_ssid_content"
+        android:layout_toRightOf="@+id/start_ip_label"
+        android:layout_toEndOf="@+id/start_ip_label"
+        android:id="@+id/start_ip_content" />
 </RelativeLayout>
