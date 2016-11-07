@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignalsScreen"></activity>
+        <activity android:name=".SignalsScreen" />
+        <activity android:name=".NetworkScreen" />
+        <activity android:name=".DeviceScreen"></activity>
     </application>
 
 </manifest>
