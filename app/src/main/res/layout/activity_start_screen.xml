@@ -20,22 +20,26 @@
         android:id="@+id/start_toolbar" />
 
     <TextView
-        android:text="@string/ip_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/start_ssid_label"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/start_ip_label" />
-
-    <TextView
         android:text="@string/ssid_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/start_ssid_label"
         android:layout_below="@+id/start_toolbar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+        android:text="@string/ip_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_ssid_label"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/start_ip_label"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:text="@string/not_found"
