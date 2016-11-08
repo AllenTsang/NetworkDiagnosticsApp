@@ -13,8 +13,8 @@ public class DeviceScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device_screen);
 
-        Toolbar startToolbar = (Toolbar)findViewById(R.id.start_toolbar);
-        setSupportActionBar(startToolbar);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override

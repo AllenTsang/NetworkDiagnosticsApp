@@ -13,8 +13,8 @@ public class SignalsScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signals_screen);
 
-        Toolbar startToolbar = (Toolbar)findViewById(R.id.start_toolbar);
-        setSupportActionBar(startToolbar);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
