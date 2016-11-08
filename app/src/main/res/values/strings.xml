@@ -8,4 +8,6 @@
 
     <string name="not_found">Not found...</string>
 
+    <string name="action_wifi">Nearby Signals</string>
+
 </resources>
