@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_start_screen"
     android:layout_width="match_parent"
@@ -10,15 +11,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="allentsang.networkdiagnosticsapp.StartScreen">
 
-
-    <TextView
-        android:text="@string/ssid_label"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/start_ssid_label" />
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/start_toolbar" />
 
     <TextView
         android:text="@string/ip_label"
@@ -30,20 +29,33 @@
         android:id="@+id/start_ip_label" />
 
     <TextView
-        android:text="@string/not_found"
+        android:text="@string/ssid_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/start_ip_label"
-        android:layout_toEndOf="@+id/start_ip_label"
-        android:id="@+id/start_ssid_content" />
+        android:id="@+id/start_ssid_label"
+        android:layout_below="@+id/start_toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:text="@string/not_found"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/start_ssid_content"
+        android:id="@+id/start_ssid_content"
+        android:layout_below="@+id/start_toolbar"
         android:layout_toRightOf="@+id/start_ip_label"
         android:layout_toEndOf="@+id/start_ip_label"
-        android:id="@+id/start_ip_content" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+        android:text="@string/not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/start_ip_content"
+        android:layout_below="@+id/start_ssid_content"
+        android:layout_alignLeft="@+id/start_ssid_content"
+        android:layout_alignStart="@+id/start_ssid_content" />
+
+
 </RelativeLayout>
