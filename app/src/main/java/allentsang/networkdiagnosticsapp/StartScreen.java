@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class StartScreen extends AppCompatActivity {
@@ -22,14 +23,7 @@ public class StartScreen extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        wifiManager = (WifiManager)getSystemService(this.WIFI_SERVICE);
-        wifiInfo = wifiManager.getConnectionInfo();
-
-        ((TextView)findViewById(R.id.ssid_content)).setText(wifiInfo.getSSID());
-
-        int ipAddr = wifiInfo.getIpAddress();
-        String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
-        ((TextView)findViewById(R.id.ip_content)).setText(ipString);
+        refreshInfo(null);
     }
 
     @Override
@@ -47,5 +41,20 @@ public class StartScreen extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void refreshInfo(View view) {
+        wifiManager = (WifiManager)getSystemService(this.WIFI_SERVICE);
+        wifiInfo = wifiManager.getConnectionInfo();
+
+        ((TextView)findViewById(R.id.ssid_content)).setText(wifiInfo.getSSID());
+
+        int ipAddr = wifiInfo.getIpAddress();
+        String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
+        ((TextView)findViewById(R.id.ip_content)).setText(ipString);
+    }
+
+    public void scanNetwork(View view) {
+        //stuff
     }
 }

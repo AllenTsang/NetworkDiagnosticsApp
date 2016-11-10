@@ -8,6 +8,9 @@
 
     <string name="not_found">Not found...</string>
 
+    <string name="refresh_button">Refresh</string>
+    <string name="scan_network_button">Scan network</string>
+
     <string name="action_wifi">Nearby Signals</string>
 
 </resources>
