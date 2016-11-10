@@ -29,18 +29,6 @@ public class SignalsScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         refreshInfo(null);
-
-        ArrayList<String> list = new ArrayList<String>();
-        wifiManager.startScan();
-        List<ScanResult> results = wifiManager.getScanResults();
-
-        for(ScanResult sr : results) {
-            String s = String.format("SSID:\t%s\nStrength:\t%d dBm", sr.SSID, sr.level);
-            list.add(s);
-        }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-        ((ListView)findViewById(R.id.signal_list)).setAdapter(adapter);
     }
 
     @Override
@@ -70,5 +58,17 @@ public class SignalsScreen extends AppCompatActivity {
         int ipAddr = wifiInfo.getIpAddress();
         String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
         ((TextView)findViewById(R.id.ip_content)).setText(ipString);
+
+        ArrayList<String> list = new ArrayList<String>();
+        wifiManager.startScan();
+        List<ScanResult> results = wifiManager.getScanResults();
+
+        for(ScanResult sr : results) {
+            String s = String.format("SSID:\t%s\nStrength:\t%d dBm", sr.SSID, sr.level);
+            list.add(s);
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+        ((ListView)findViewById(R.id.signal_list)).setAdapter(adapter);
     }
 }
