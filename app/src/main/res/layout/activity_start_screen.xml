@@ -61,5 +61,25 @@
         android:layout_alignLeft="@+id/ssid_content"
         android:layout_alignStart="@+id/ssid_content" />
 
+    <Button
+        android:text="@string/refresh_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ip_label"
+        android:layout_toLeftOf="@+id/ip_content"
+        android:layout_toStartOf="@+id/ip_content"
+        android:id="@+id/refresh_button"
+        android:onClick="refreshInfo" />
+
+    <Button
+        android:text="@string/scan_network_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ip_content"
+        android:layout_toRightOf="@+id/refresh_button"
+        android:layout_toEndOf="@+id/refresh_button"
+        android:id="@+id/scan_network_button"
+        android:onClick="scanNetwork" />
+
 
 </RelativeLayout>
