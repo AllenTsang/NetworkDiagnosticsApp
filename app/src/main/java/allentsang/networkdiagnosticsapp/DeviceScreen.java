@@ -27,7 +27,7 @@ public class DeviceScreen extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.action_wifi:
-
+                //Go to signals screen
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

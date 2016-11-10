@@ -1,7 +1,12 @@
 package allentsang.networkdiagnosticsapp;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,12 +14,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class StartScreen extends AppCompatActivity {
 
     WifiManager wifiManager;
     WifiInfo wifiInfo;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +31,11 @@ public class StartScreen extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         refreshInfo(null);
+
+        if(checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+            //Toast.makeText(getApplication(), "Requesting permission", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -36,7 +48,10 @@ public class StartScreen extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.action_wifi:
-
+                //Go to signals screen
+                Toast.makeText(getApplication(), "Go to signals screen", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, SignalsScreen.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -55,6 +70,7 @@ public class StartScreen extends AppCompatActivity {
     }
 
     public void scanNetwork(View view) {
-        //stuff
+        //Go to network screen
+        Toast.makeText(getApplication(), "Go to network screen", Toast.LENGTH_SHORT).show();
     }
 }
