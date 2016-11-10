@@ -34,7 +34,6 @@ public class StartScreen extends AppCompatActivity {
 
         if(checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-            //Toast.makeText(getApplication(), "Requesting permission", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -49,7 +48,6 @@ public class StartScreen extends AppCompatActivity {
         switch(item.getItemId()) {
             case R.id.action_wifi:
                 //Go to signals screen
-                Toast.makeText(getApplication(), "Go to signals screen", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, SignalsScreen.class);
                 startActivity(intent);
                 return true;
@@ -71,6 +69,8 @@ public class StartScreen extends AppCompatActivity {
 
     public void scanNetwork(View view) {
         //Go to network screen
-        Toast.makeText(getApplication(), "Go to network screen", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplication(), "Go to network screen", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, NetworkScreen.class);
+        startActivity(intent);
     }
 }

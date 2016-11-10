@@ -59,6 +59,7 @@ public class SignalsScreen extends AppCompatActivity {
         String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
         ((TextView)findViewById(R.id.ip_content)).setText(ipString);
 
+        //Populate signal list
         ArrayList<String> list = new ArrayList<String>();
         wifiManager.startScan();
         List<ScanResult> results = wifiManager.getScanResults();

@@ -18,4 +18,64 @@
         android:minHeight="?attr/actionBarSize"
         android:id="@+id/toolbar" />
 
+    <TextView
+        android:text="@string/ssid_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ssid_label"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+        android:text="@string/ip_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ssid_label"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/ip_label"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+        android:text="@string/not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ssid_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_toRightOf="@+id/ip_label"
+        android:layout_toEndOf="@+id/ip_label"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+        android:text="@string/not_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ip_content"
+        android:layout_below="@+id/ssid_content"
+        android:layout_alignLeft="@+id/ssid_content"
+        android:layout_alignStart="@+id/ssid_content" />
+
+    <Button
+        android:text="@string/refresh_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ip_label"
+        android:layout_toLeftOf="@+id/ip_content"
+        android:layout_toStartOf="@+id/ip_content"
+        android:id="@+id/refresh_button"
+        android:onClick="refreshInfo" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/refresh_button"
+        android:layout_alignLeft="@+id/ip_label"
+        android:layout_alignStart="@+id/ip_label"
+        android:id="@+id/device_list" />
+
 </RelativeLayout>
