@@ -53,11 +53,18 @@ public class SignalsScreen extends AppCompatActivity {
         wifiManager = (WifiManager)getSystemService(this.WIFI_SERVICE);
         wifiInfo = wifiManager.getConnectionInfo();
 
-        ((TextView)findViewById(R.id.ssid_content)).setText(wifiInfo.getSSID());
+        TextView ssidContent = (TextView) findViewById(R.id.ssid_content);
+        TextView ipContent = (TextView) findViewById(R.id.ip_content);
 
-        int ipAddr = wifiInfo.getIpAddress();
-        String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
-        ((TextView)findViewById(R.id.ip_content)).setText(ipString);
+        if(wifiInfo.getSSID().equals("0x")) {
+            ssidContent.setText("Connection not found");
+            ipContent.setText("");
+        } else {
+            ssidContent.setText(wifiInfo.getSSID());
+            int ipAddr = wifiInfo.getIpAddress();
+            String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
+            ipContent.setText(ipString);
+        }
 
         //Populate signal list
         ArrayList<String> list = new ArrayList<String>();
@@ -65,7 +72,7 @@ public class SignalsScreen extends AppCompatActivity {
         List<ScanResult> results = wifiManager.getScanResults();
 
         for(ScanResult sr : results) {
-            String s = String.format("SSID:\t%s\nMAC:\t%s\nStrength:\t%d dBm", sr.SSID.equals("") ? "No name found" : sr.SSID, sr.BSSID, sr.level);
+            String s = String.format("SSID:\t%s\nMAC:\t%s\nStrength:\t%d dBm", sr.SSID.equals("") ? "Name not found" : sr.SSID, sr.BSSID, sr.level);
             list.add(s);
         }
 

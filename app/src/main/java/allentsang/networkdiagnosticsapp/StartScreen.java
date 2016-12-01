@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,12 +60,21 @@ public class StartScreen extends AppCompatActivity {
     public void refreshInfo(View view) {
         wifiManager = (WifiManager)getSystemService(this.WIFI_SERVICE);
         wifiInfo = wifiManager.getConnectionInfo();
+        Button scanButton = (Button)findViewById(R.id.scan_network_button);
+        TextView ssidContent = (TextView) findViewById(R.id.ssid_content);
+        TextView ipContent = (TextView) findViewById(R.id.ip_content);
 
-        ((TextView)findViewById(R.id.ssid_content)).setText(wifiInfo.getSSID());
-
-        int ipAddr = wifiInfo.getIpAddress();
-        String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
-        ((TextView)findViewById(R.id.ip_content)).setText(ipString);
+        if(wifiInfo.getSSID().equals("0x")) {
+            ssidContent.setText("Connection not found");
+            scanButton.setEnabled(false);
+            ipContent.setText("");
+        } else {
+            ssidContent.setText(wifiInfo.getSSID());
+            scanButton.setEnabled(true);
+            int ipAddr = wifiInfo.getIpAddress();
+            String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
+            ipContent.setText(ipString);
+        }
     }
 
     public void scanNetwork(View view) {

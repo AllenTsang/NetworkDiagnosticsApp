@@ -47,11 +47,17 @@ public class DeviceScreen extends AppCompatActivity {
     public void refreshInfo(View view) {
         wifiManager = (WifiManager)getSystemService(this.WIFI_SERVICE);
         wifiInfo = wifiManager.getConnectionInfo();
+        TextView ssidContent = (TextView) findViewById(R.id.ssid_content);
+        TextView ipContent = (TextView) findViewById(R.id.ip_content);
 
-        ((TextView)findViewById(R.id.ssid_content)).setText(wifiInfo.getSSID());
-
-        int ipAddr = wifiInfo.getIpAddress();
-        String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
-        ((TextView)findViewById(R.id.ip_content)).setText(ipString);
+        if(wifiInfo.getSSID().equals("0x")) {
+            ssidContent.setText("Connection not found");
+            ipContent.setText("");
+        } else {
+            ssidContent.setText(wifiInfo.getSSID());
+            int ipAddr = wifiInfo.getIpAddress();
+            String ipString = String.format("%d.%d.%d.%d", (ipAddr & 0xff), (ipAddr >> 8 & 0xff), (ipAddr >> 16 & 0xff), (ipAddr >> 24 & 0xff));
+            ipContent.setText(ipString);
+        }
     }
 }
