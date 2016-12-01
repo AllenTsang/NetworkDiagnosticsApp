@@ -85,9 +85,13 @@ public class NetworkScreen extends AppCompatActivity {
             @Override
             public void onPeersAvailable(WifiP2pDeviceList peers) {
                 Collection<WifiP2pDevice> col = peers.getDeviceList();
-                for(WifiP2pDevice d : col) {
-                    String s = String.format("Name:\t%s\nAddress:\t%s", d.deviceName, d.deviceAddress);
-                    list.add(s);
+                if(col.isEmpty()){
+                    list.add("No devices detected.");
+                } else {
+                    for(WifiP2pDevice d : col) {
+                        String s = String.format("Name:\t%s\nAddress:\t%s", d.deviceName, d.deviceAddress);
+                        list.add(s);
+                    }
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, list);
                 ((ListView)findViewById(R.id.device_list)).setAdapter(adapter);
