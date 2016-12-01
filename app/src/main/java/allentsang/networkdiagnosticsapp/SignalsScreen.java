@@ -65,7 +65,7 @@ public class SignalsScreen extends AppCompatActivity {
         List<ScanResult> results = wifiManager.getScanResults();
 
         for(ScanResult sr : results) {
-            String s = String.format("SSID:\t%s\nMAC:\t%s\nStrength:\t%d dBm", sr.SSID, sr.BSSID, sr.level);
+            String s = String.format("SSID:\t%s\nMAC:\t%s\nStrength:\t%d dBm", sr.SSID.equals("") ? "No name found" : sr.SSID, sr.BSSID, sr.level);
             list.add(s);
         }
 
