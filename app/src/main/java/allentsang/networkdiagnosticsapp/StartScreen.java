@@ -22,7 +22,6 @@ public class StartScreen extends AppCompatActivity {
     WifiManager wifiManager;
     WifiInfo wifiInfo;
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
