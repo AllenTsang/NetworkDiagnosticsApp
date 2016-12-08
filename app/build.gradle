@@ -28,4 +28,8 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+    compile files('C:/Users/user/Documents/BCIT/NetworkDiagnosticsApp/libs/cling-core-2.1.1.jar')
+    compile files('C:/Users/user/Documents/BCIT/NetworkDiagnosticsApp/libs/seamless-http-1.1.1.jar')
+    compile files('C:/Users/user/Documents/BCIT/NetworkDiagnosticsApp/libs/seamless-util-1.1.1.jar')
+    compile files('C:/Users/user/Documents/BCIT/NetworkDiagnosticsApp/libs/seamless-xml-1.1.1.jar')
 }
